@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { MainRoutes } from "./routes/Routes";
+import { useSelector } from "react-redux";
+import { Loading } from "./components/loading/loading";
 
 function App() {
+  const { refresh } = useSelector((state) => state.common);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {refresh && <Loading />}
+
+      <div className="App container mx-auto py-4">
+        <MainRoutes />
+      </div>
+    </>
   );
 }
 
