@@ -31,6 +31,6 @@ export default {
   },
 
   eventRegister(params){
-    return api.post(`${process.env.REACT_APP_BACKEND_URL}/event/register`, params);
+    return api.post(`${process.env.REACT_APP_BACKEND_URL}/reserve`, params);
   }
 };
